@@ -14,18 +14,7 @@ const Utils = {
 
 const State = {
 	// App State
-	instances: [
-		{
-			id: 'idka9x6e3fao',
-			name: 'Nandan',
-			url: 'http://localhost:8080',
-		},
-		{
-			id: 'idjx07o8rq6c',
-			name: 'Jay',
-			url: 'https://clock.nandanreddy.tech',
-		},
-	],
+	instances: [],
 	addInstance(instance) {
 		this.instances.push(instance);
 	},
@@ -134,6 +123,14 @@ DOM.addInstanceForm.addEventListener('submit', (event) => {
 	};
 
 	Logic.addInstance(newInstance);
+});
+
+DOM.instances.addEventListener('click', (event) => {
+	const instance = event.target.closest('.instance');
+	if (instance) {
+		// console.log(instance.id);
+		Logic.removeInstance(instance.id);
+	}
 });
 
 // Initialization
