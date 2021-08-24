@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+:root {
+	--main-background-color: #222;
+	--main-accent-darker: #333;
+	--main-accent: #444;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+	border-radius: 0.25rem;
+}
+
+body {
+	font-family: 'Muli', sans-serif;
+	background-color: #252525;
+	color: #ccc;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+}
+
+.add-instance-container {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	text-align: right;
+}
+
+#add-instance-form {
+	background-color: #444;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	position: relative;
+}
+
+#add-instance-form::before {
+	content: ' ';
+	position: absolute;
+	bottom: 100%;
+	right: 1rem;
+	border: 0.5rem solid;
+	border-color: transparent transparent #444;
+}
+
+#add-instance {
+	background: transparent !important;
+	padding: 0;
+	font-size: 3rem;
+	color: #ccc;
+}
+
+#new-instance-field {
+	border: none;
+	background: #333;
+	border-radius: 0.25rem;
+	color: #ccc;
+	outline: none;
+	padding: 0.5rem;
+}
+
+#add-instance-confirm-button {
+	background: #333;
+	padding: 0.5rem;
+	color: #ccc;
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--main-background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--main-accent-darker);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--main-accent);
+}
