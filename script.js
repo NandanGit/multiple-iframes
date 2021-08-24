@@ -23,6 +23,9 @@ const State = {
 			(instance) => instance.id !== id
 		);
 	},
+	updateInstances(instances) {
+		this.instances = instances;
+	},
 };
 
 const UI = {
@@ -87,6 +90,11 @@ const UI = {
 const Logic = {
 	// Logic methods
 	init() {
+		// Look for stored instances in local storage
+		const localInstances = localStorage.getItem('instances');
+		if (localInstances) {
+			State.updateInstances(JSON.parse(localInstances));
+		}
 		UI.updateInstances(State.instances);
 	},
 
@@ -131,6 +139,11 @@ DOM.instances.addEventListener('click', (event) => {
 		// console.log(instance.id);
 		Logic.removeInstance(instance.id);
 	}
+});
+
+window.addEventListener('beforeunload', (event) => {
+	// Update the localStorage before leaving the page
+	localStorage.setItem('instances', JSON.stringify(State.instances));
 });
 
 // Initialization
