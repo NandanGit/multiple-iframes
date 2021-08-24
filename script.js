@@ -1,6 +1,8 @@
 const DOM = {
 	// DOM Elements
 	instances: document.getElementById('instances'),
+	addInstanceForm: document.getElementById('add-instance-form'),
+	addInstanceButton: document.getElementById('add-instance'),
 };
 
 const Utils = {
@@ -19,8 +21,15 @@ const UI = {
 				></iframe>`;
 		DOM.instances.insertAdjacentHTML('beforeend', instanceHTML);
 	},
+
+	toggleAddInstanceForm() {
+		DOM.addInstanceForm.classList.toggle('hidden');
+	},
 };
 
 const Logic = {
 	// Logic methods
 };
+
+// Event Listeners
+DOM.addInstanceButton.addEventListener('click', UI.toggleAddInstanceForm);
